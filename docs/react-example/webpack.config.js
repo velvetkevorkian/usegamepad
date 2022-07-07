@@ -1,6 +1,10 @@
-const HtmlWebpackPlugin = require ("html-webpack-plugin")
+import HtmlWebpackPlugin from "html-webpack-plugin"
+import path, {dirname} from 'node:path'
+import {fileURLToPath} from 'node:url'
 
-module.exports =  {
+const __dirname = dirname(fileURLToPath(import.meta.url))
+
+export default {
   entry: "./index.tsx",
   mode: "development",
   module: {
@@ -22,4 +26,7 @@ module.exports =  {
     static: "./dist",
     port: 3000,
   },
+  output: {
+    path: path.join(__dirname, 'dist')
+  }
 }

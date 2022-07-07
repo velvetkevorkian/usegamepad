@@ -1,5 +1,5 @@
 {
-  "name": "usegamepad-monorepo",
+  "name": "usegamepad",
   "version": "0.0.1",
   "description": "React/Preact hooks for the gamepad API",
   "main": "index.js",
@@ -19,9 +19,5 @@
   "peerDependencies": {
     "preact": "^10.9.0",
     "react": "^18.2.0"
-  },
-  "workspaces":[
-    "./docs/*",
-    "./src"
-  ]
+  }
 }

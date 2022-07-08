@@ -1,4 +1,5 @@
-import {useEffect} from 'react'
-import useGamepadFactory from '../shared'
+import {useEffect, useRef, useState} from 'react'
+import useGamepad from '../shared'
+import { UseGamepadOptions } from '../shared/types'
 
-export default useGamepadFactory({useEffect})
+export default (options: UseGamepadOptions) => useGamepad({useEffect, useRef, useState, options})

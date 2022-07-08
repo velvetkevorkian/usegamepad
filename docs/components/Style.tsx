@@ -1,4 +1,5 @@
-export const Style = () => (      <style>{`
+export const Style = () => (
+	<style>{`
 body {
   font-family: sans-serif;
 }
@@ -17,4 +18,5 @@ td:nth-of-type(2) {
   min-width: 25ch;
 }
 
-`}</style>)
+`}</style>
+)

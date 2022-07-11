@@ -54,18 +54,19 @@ const useGamepad = ({
 	useState,
 	options,
 }: UseGamepadParams) => {
-	const [state, setState] = useState({ ...initialState() })
+	const [state, setState] = useState(initialState())
 	const connectedGamepadRef = useRef()
-	const gamepadStateRef = useRef({ ...initialState() })
+	const gamepadStateRef = useRef(initialState())
 
 	const poll = () => {
 		let stateHasChanged = false
-		const newState = { ...initialState() }
+		const newState = initialState()
 		connectedGamepadRef.current.buttons.forEach(
 			(button: GamepadButton, i: number) => {
 				const buttonName = buttonList[i]
 				const { pressed } = button
 				newState.buttons[buttonName] = pressed
+				// TODO: fire event on button down/up
 
 				if (gamepadStateRef.current.buttons[buttonName] !== pressed) {
 					stateHasChanged = true

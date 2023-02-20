@@ -55,6 +55,7 @@ const useGamepad = ({
 	options,
 }: UseGamepadParams) => {
 	const [state, setState] = useState(initialState())
+	const [connected, setConnected] = useState(false)
 	const connectedGamepadRef = useRef()
 	const gamepadStateRef = useRef(initialState())
 
@@ -94,7 +95,7 @@ const useGamepad = ({
 	const handleGamepadConnected = (event: GamepadEvent) => {
 		window.removeEventListener('gamepadconnected', handleGamepadConnected)
 		connectedGamepadRef.current = event.gamepad
-		console.log(event.gamepad)
+		setConnected(true)
 		requestAnimationFrame(poll)
 	}
 
@@ -107,6 +108,7 @@ const useGamepad = ({
 	}, [])
 
 	return {
+		gamepadConnected: connected,
 		gamepadState: state,
 	}
 }
